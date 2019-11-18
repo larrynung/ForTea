@@ -77,6 +77,15 @@ val pluginFiles = listOf(
   "output/JetBrains.TextTemplating/$buildConfiguration/JetBrains.TextTemplating"
 )
 
+val libraryFiles = listOf(
+  // A temporary fix. Remove this once EnvDTE nugets are part of the platform
+  "output/JetBrains.TextTemplating/$buildConfiguration/EnvDTE",
+  "output/JetBrains.TextTemplating/$buildConfiguration/EnvDTE80",
+  "output/JetBrains.TextTemplating/$buildConfiguration/EnvDTE90",
+  "output/JetBrains.TextTemplating/$buildConfiguration/EnvDTE90a",
+  "output/JetBrains.TextTemplating/$buildConfiguration/EnvDTE100"
+)
+
 val nugetPackagesPath by lazy {
   val sdkPath = intellij.ideaDependency.classes
 
@@ -157,7 +166,7 @@ tasks {
   }
 
   withType<PrepareSandboxTask> {
-    val files = pluginFiles.map { "$it.dll" } + pluginFiles.map { "$it.pdb" }
+    val files = (pluginFiles + libraryFiles).map { "$it.dll" } + pluginFiles.map { "$it.pdb" }
     val paths = files.map { File(backendPluginPath, it) }
 
     paths.forEach {
