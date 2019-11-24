@@ -54,4 +54,7 @@ class T4RunFileTest : T4RunFileTestBase() {
   @Test fun testOutOfProjectTransitiveIncludeResolution() = doTest()
   @Test fun testInProjectNonTrivialIncludeResolution() = doTest()
   @Test fun testDefaultLinq2DbTemplate() = doTest(".generated.cs")
+  @Test fun testDefaultReferences() = doTest()
+  @Test fun testHostSpecificDefaultReferences() = doTest();
+  @Test fun testThatHostSpecificTemplateCanAccessEnvDTE() = doTest()
 }
