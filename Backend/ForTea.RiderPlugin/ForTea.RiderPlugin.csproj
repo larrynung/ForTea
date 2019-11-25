@@ -10,12 +10,14 @@
     <RootNamespace>JetBrains.ForTea.RiderPlugin</RootNamespace>
   </PropertyGroup>
   <Import Project="$(SolutionDir)targets\T4Targets.targets" />
+  <Import Project="$(SolutionDir)targets\EnvDTETargets.targets" />
   <ItemGroup>
     <PackageReference Include="JetBrains.Rider.SDK" Version="$(RiderSDKVersion)">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <ProjectReference Include="..\ForTea.Core\ForTea.Core.csproj" />
     <ProjectReference Include="..\JetBrains.TextTemplating\JetBrains.TextTemplating.csproj" />
+    <PackageReference Include="JetBrains.EnvDTE.Host" Version="$(EnvDTEVersion)" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Features\Folding\T4CodeFoldingAttributes.tt">
